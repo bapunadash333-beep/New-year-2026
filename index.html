@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026 Surprise!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', 'Comic Sans MS', cursive, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c2e 0%, #1a1a4a 50%, #2d2d6e 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            padding: 30px 0;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glitter-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/star-field.png');
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            color: #FFD700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 107, 139, 0.6);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: #FF6B8B;
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(255, 107, 139, 0.7);
+        }
+        
+        .name-highlight {
+            color: #FFD700;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 107, 139, 0.2));
+            padding: 8px 20px;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 10px 5px;
+            font-size: 1.8rem;
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .names-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .countdown-container {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 25px;
+            padding: 35px;
+            margin: 35px 0;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 107, 139, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        
+        .countdown-item {
+            background: linear-gradient(145deg, rgba(255, 107, 139, 0.9), rgba(255, 215, 0, 0.9));
+            border-radius: 20px;
+            padding: 25px 20px;
+            min-width: 140px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .countdown-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .countdown-value {
+            font-size: 3.5rem;
+            font-weight: bold;
+            display: block;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .countdown-label {
+            font-size: 1.4rem;
+            margin-top: 8px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .current-time {
+            font-size: 1.8rem;
+            margin-top: 20px;
+            color: #FFD700;
+            background: rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+        }
+        
+        .message-container {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 25px;
+            padding: 35px;
+            margin: 35px 0;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(100, 200, 255, 0.3);
+        }
+        
+        .message {
+            font-size: 1.6rem;
+            line-height: 1.9;
+            margin-bottom: 25px;
+            text-align: left;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border-left: 6px solid #FF6B8B;
+            position: relative;
+        }
+        
+        .message::before {
+            content: '"';
+            font-size: 8rem;
+            color: rgba(255, 107, 139, 0.3);
+            position: absolute;
+            top: -30px;
+            left: 10px;
+            font-family: Georgia, serif;
+        }
+        
+        .surprise-button {
+            background: linear-gradient(to right, #FF6B8B, #FFD700, #64C8FF);
+            border: none;
+            border-radius: 60px;
+            color: #0c0c2e;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 25px 60px;
+            margin: 35px 0;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 15px 35px rgba(255, 107, 139, 0.5);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+        
+        .surprise-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 40px rgba(255, 107, 139, 0.7);
+            letter-spacing: 2px;
+        }
+        
+        .surprise-button:active {
+            transform: scale(0.98);
+        }
+        
+        .surprise-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(30deg);
+            transition: transform 0.8s;
+        }
+        
+        .surprise-button:hover::after {
+            transform: rotate(30deg) translateX(100%);
+        }
+        
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .gift-box {
+            font-size: 6rem;
+            margin: 25px 0;
+            animation: bounce 2s infinite alternate;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateY(0px) rotate(-5deg); }
+            100% { transform: translateY(-25px) rotate(5deg); }
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 25px;
+            color: #aaa;
+            font-size: 1.3rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            border-top: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .secret-message {
+            background: linear-gradient(135deg, rgba(255, 107, 139, 0.15), rgba(255, 215, 0, 0.15));
+            border-radius: 25px;
+            padding: 40px;
+            margin-top: 40px;
+            animation: fadeIn 2s;
+            border: 3px dashed #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .secret-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/light-paper-fibers.png');
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .glitter-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: gold;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .snowflake {
+            position: absolute;
+            color: #fff;
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px rgba(100, 200, 255, 0.7);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            color: #FF6B8B;
+            margin: 0 10px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .countdown-item {
+                min-width: 110px;
+                padding: 20px 15px;
+            }
+            
+            .countdown-value {
+                font-size: 2.8rem;
+            }
+            
+            .surprise-button {
+                font-size: 1.6rem;
+                padding: 20px 40px;
+            }
+            
+            .message {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fireworks" id="fireworks"></div>
+    
+    <div class="container">
+        <header>
+            <div class="glitter-effect"></div>
+            <h1>🎊 Happy New Year 2026! 🎊</h1>
+            <h2>A Special Surprise For You</h2>
+            
+            <div class="names-container">
+                <div>From: <span class="name-highlight">Omm</span></div>
+                <div class="heart">❤️</div>
+                <div>To: <span class="name-highlight">Kamala</span></div>
+            </div>
+            
+            <div class="gift-box">🎁</div>
+            <p style="font-size: 1.5rem; margin-top: 15px;">December 31, 2025 - 7:47 PM</p>
+        </header>
+        
+        <section class="countdown-container">
+            <h2>New Year 2026 Countdown</h2>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            <div class="current-time" id="currentTime"></div>
+        </section>
+        
+        <section class="message-container">
+            <h2>My New Year Message For You <span class="heart">💖</span></h2>
+            <div class="message">
+                <p>My dearest sister <span class="name-highlight" style="font-size: 1.4rem; padding: 5px 15px;">Kamala</span>,</p>
+                <p>As we stand on the last day of 2025, I want to take this moment to tell you how incredibly special you are to me. You're not just my sister, you're my best friend, my confidante, and my greatest supporter.</p>
+                <p>This past year has been amazing because of you, and I know 2026 will be even better! May this new year bring you endless joy, success in everything you do, and dreams that turn into reality.</p>
+                <p>Remember, no matter what happens, I'll always be here for you. Let's make 2026 our most memorable year yet!</p>
+                <p style="text-align: right; margin-top: 20px; font-size: 1.8rem;">
+                    With all my love,<br>
+                    <span style="color: #FFD700;">Your brother Omm</span>
+                </p>
+            </div>
+        </section>
+        
+        <button class="surprise-button" id="surpriseBtn">
+            <i class="fas fa-star"></i> Click for Kamala's Special Surprise! <i class="fas fa-star"></i>
+        </button>
+        
+        <div class="secret-message hidden" id="secretMessage">
+            <h2>🎀 Kamala's Special 2026 Surprise! 🎀</h2>
+            <div class="message">
+                <p>My dearest sister <span class="name-highlight" style="font-size: 1.4rem; padding: 5px 15px;">Kamala</span>,</p>
+                <p>For 2026, I have planned something special just for you!</p>
+                <p><span class="heart">🎁</span> <strong>Your Surprise Gift:</strong> A weekend trip to your favorite place! We'll go wherever you want - mountains, beach, or city adventure!</p>
+                <p><span class="heart">🎂</span> <strong>Special Promise:</strong> I'll be your personal "yes man" for one whole day - whatever you want to do, eat, or watch, I'm in!</p>
+                <p><span class="heart">💝</span> <strong>And the best part:</strong> A custom-made photo album of our best memories together!</p>
+                <p style="text-align: center; font-size: 2rem; margin-top: 25px; color: #FFD700;">
+                    🎉 2026 is OUR year! 🎉
+                </p>
+                <p style="text-align: center; margin-top: 20px;">
+                    <span style="font-size: 1.8rem; color: #64C8FF;">Love you always, Omm</span>
+                </p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Made with <span class="heart">❤️</span> by Omm for his amazing sister Kamala | Happy New Year 2026!</p>
+            <p>May this year bring you more happiness than you've ever known!</p>
+            <p style="margin-top: 15px; font-size: 1.1rem; color: #FFD700;">December 31, 2025 | 7:47 PM</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Set the date for New Year 2026 (Tonight at midnight)
+        const now = new Date();
+        const newYearDate = new Date(2025, 11, 31, 24, 0, 0); // December 31, 2025, 24:00:00 (midnight)
+        
+        // Update countdown every second
+        const countdownFunction = setInterval(function() {
+            const currentTime = new Date();
+            const timeLeft = newYearDate - currentTime;
+            
+            // Calculate hours, minutes, seconds
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            // Display the results
+            document.getElementById('hours').innerHTML = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerHTML = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
+            
+            // Update current time display
+            const currentTimeStr = currentTime.toLocaleTimeString('en-IN', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true 
+            });
+            document.getElementById('currentTime').innerHTML = `Current Time: ${currentTimeStr}`;
+            
+            // If the countdown is over
+            if (timeLeft < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById('countdown').innerHTML = `
+                    <h2 style="color:#FFD700; font-size: 3rem;">🎉 Happy New Year 2026! 🎉</h2>
+                    <p style="font-size: 1.8rem; margin-top: 20px;">Welcome to an amazing new year, Kamala!</p>
+                `;
+                createFireworks();
+                createGlitterEffect();
+            }
+        }, 1000);
+        
+        // Create initial snowflakes
+        function createSnowflakes() {
+            const body = document.querySelector('body');
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const snowflake = document.createElement('div');
+                    snowflake.classList.add('snowflake');
+                    snowflake.innerHTML = '❄';
+                    snowflake.style.left = Math.random() * 100 + 'vw';
+                    snowflake.style.top = '-20px';
+                    snowflake.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+                    
+                    body.appendChild(snowflake);
+                    
+                    // Animate snowflake falling
+                    const animation = snowflake.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: snowflake.style.opacity },
+                        { transform: `translateY(${window.innerHeight + 50}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                    ], {
+                        duration: 5000 + Math.random() * 10000,
+                        easing: 'linear'
+                    });
+                    
+                    // Remove snowflake after animation and create new one
+                    animation.onfinish = () => {
+                        snowflake.remove();
+                        createSnowflake();
+                    };
+                }, i * 200);
+            }
+        }
+        
+        function createSnowflake() {
+            const body = document.querySelector('body');
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.top = '-20px';
+            snowflake.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+            
+            body.appendChild(snowflake);
+            
+            // Animate snowflake falling
+            const animation = snowflake.animate([
+                { transform: 'translateY(0) rotate(0deg)', opacity: snowflake.style.opacity },
+                { transform: `translateY(${window.innerHeight + 50}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: 5000 + Math.random() * 10000,
+                easing: 'linear'
+            });
+            
+            // Remove snowflake after animation and create new one
+            animation.onfinish = () => {
+                snowflake.remove();
+                setTimeout(createSnowflake, Math.random() * 5000);
+            };
+        }
+        
+        // Create glitter particles
+        function createGlitterEffect() {
+            const body = document.querySelector('body');
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const glitter = document.createElement('div');
+                    glitter.classList.add('glitter-particle');
+                    glitter.style.left = Math.random() * 100 + 'vw';
+                    glitter.style.top = Math.random() * 100 + 'vh';
+          
